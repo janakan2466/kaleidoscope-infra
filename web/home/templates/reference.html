@@ -1,0 +1,76 @@
+{% extends "home.html" %}
+
+{% block title %}API Reference{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1 class="display-4">Kaleidoscope SDK</h1>
+        <p class="lead">Vector Institute's models can be intefraced from the playground and SDK</p>
+        <hr class="my-4">
+        <p class="lead">SDKs</p>
+        <ul class="list-inline">
+            <li class="list-inline-item text-muted">Python</li>
+            <li class="list-inline-item p-1 border"><code>pip install kscope</code></li>
+        </ul>
+    </div>
+    <!-- API endpoint list -->
+    <div class="col">
+        <div class="row-fluid">
+            <div class="alert alert-light bg-light" role="alert">
+                <div class="accordion mt-3 col-8" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="generateApiRef">
+                            <h2 class="mb-0">
+                                <button class="btn text-left font-weight-light alert-heading" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                /generate_text
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">Generates text.</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="moduleApiRef">
+                            <h2 class="mb-0">
+                                <button class="btn text-left font-weight-light alert-heading collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                /module_names
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">Retrieves module names.</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="activationApiRef">
+                            <h2 class="mb-0">
+                            <button class="btn text-left font-weight-light alert-heading collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                /get_activations
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">Retrieves activations for selected modules.</div>
+                        </div>
+                    </div>
+                    <!-- <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn text-left font-weight-light alert-heading collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                /embed_text
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div class="card-body">Retrieves specific text embeddings.</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="fixed-bottom navbar-custom text-center">
+        <a class="text-white small">© 2023 Vector Institute</a>
+    </footer>
+{% endblock %}

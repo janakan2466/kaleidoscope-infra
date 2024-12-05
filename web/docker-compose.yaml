@@ -1,0 +1,50 @@
+# Production environment
+version: '3.8'
+name: 'kaleidoscope'
+services:
+  web:
+    depends_on:
+      - "db"
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 3001:3001
+    volumes:
+      - /h/llm/.ssh:/root/.ssh
+      - .:/app
+    restart: always
+  web-worker:
+    depends_on:
+      - "db"
+    build: .
+    entrypoint: celery
+    env_file:
+      - .env
+    command: -A gateway_service.celery worker -B
+    volumes:
+      - ~/.ssh:/root/.ssh
+      - .:/app
+    restart: always
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=vector
+      - POSTGRES_DB=test
+    ports:
+      - 5432:5432
+    restart: always
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+    restart: always
+
+volumes:
+  postgres_data:
+    name: lingua_postgres_data
